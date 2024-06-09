@@ -1,30 +1,46 @@
-'use strict'
+'use strict';
 
-const openModal = () => document.getElementById('modal')
-    .classList.add('active')
+document.addEventListener('DOMContentLoaded', () => {
+    const openModal = () => document.getElementById('modal')
+        .classList.add('active');
 
-const closeModal = () => document.getElementById('modal')
-    .classList.remove('active')
+    const closeModal = () => document.getElementById('modal')
+        .classList.remove('active');
 
-const tempClient = {
-    nome: "lhsf",
-    email: "lhsf@hotmail.com",
-    celular: "256326655",
-    cidade: "Martinopolis"
-}
+    const tempClient = {
+        nome: "lhsf",
+        email: "lhsf@hotmail.com",
+        celular: "256326655",
+        cidade: "Martinopolis"
+    };
 
-const getLocalStorage = () => JSON.parse(localStorage.getItem('db_client')) ?? []
-const setLocalStorage = (dbClient) => localStorage.setItem("db_client", JSON.stringify(dbClient))
-
-const createClient = (client) => {
-    const dbClient = getLocalStorage() 
-    dbClient.push(client)
-    setLocalStorage(dbClient)
+    const getLocalStorage = () => JSON.parse(localStorage.getItem('db_client')) ?? [];
+    const setLocalStorage = (dbClient) => localStorage.setItem("db_client", JSON.stringify(dbClient))
     
-}
+    const readClient = () => getLocalStorage()
 
-document.getElementById('cadastrarCliente')
-    .addEventListener('click', openModal)
+    const deleteClient = (index) => {
+        const dbClient = readClient()
+        dbClient.splice(index, 1)
+        setLocalStorare(dbClient)
+    }
 
-document.getElementById('modalClose')
-    .addEventListener('click', closeModal)
+    const updateClient = (index, client) => {
+        const dbClient = readClient()
+        dbClient[index] = client
+        setLocalStorage(dbClient)
+    }
+
+
+    const createClient = (client) => {
+        const dbClient = getLocalStorage()
+        dbClient.push(client);
+        setLocalStorage(dbClient);
+    }
+
+    document.getElementById('cadastrarCliente')
+        .addEventListener('click', openModal)
+
+    document.getElementById('modalClose')
+        .addEventListener('click', closeModal)
+});
