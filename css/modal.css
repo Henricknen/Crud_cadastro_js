@@ -87,17 +87,14 @@
         top:100%;
         transition: all 1s ease;
     }
-
     .modal.active{
         top:0;
     }
-
     .modal-content{
         margin:0;
         width:100%;
         position:fixed;
     }
-    
     .modal-field{
         width:100%;
     }

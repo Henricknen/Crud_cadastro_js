@@ -50,7 +50,6 @@ footer{
     font-weight: 200;
     font-style: italic;
     padding: 20px;
-    color: black;
 }
 
 @media (max-width:480px){

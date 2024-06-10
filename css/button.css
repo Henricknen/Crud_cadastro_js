@@ -36,7 +36,6 @@ button.red{
         top: 90vh;
         left: 80vw;
     }
-    
     .button.mobile::before{
         content: "+";
         color:black;
